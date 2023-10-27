@@ -2,7 +2,7 @@ import './App.css';
 import Nav from './components/Nav';
 import Movies from './api/movieDbApi';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
   // STATE
@@ -14,7 +14,7 @@ function App() {
         movies={movies}
         setMovies={setMovies}
       />
-      {/* <Movies /> */}
+      <Movies movies={movies} />
     </div>
   );
 }
