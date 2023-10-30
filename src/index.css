@@ -6,7 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to bottom, rgba(11, 11, 14, 0.52), rgba(117, 19, 93, 0.73)), url('C:/Users/apurc/Documents/odinReact/movie-search/src/assets/movie-search-background.jpg');
+  /* background-image: linear-gradient(to bottom, rgba(11, 11, 14, 0.52), rgba(117, 19, 93, 0.73)), url('C:/Users/apurc/Documents/odinReact/movie-search/src/assets/movie-search-background.jpg'); */
+  background-image: url('C:/Users/apurc/Documents/odinReact/movie-search/src/assets/movie-search-background.jpg');
   background-size: cover;
   height: 100vh;
 }
