@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
+import Landing from './components/Landing';
 import MovieList from './components/MovieCard';
 import MovieCard from './components/MovieCard';
 
@@ -10,6 +11,7 @@ function App() {
   // STATE
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [searchedMovie, setSearchedMovie] = useState('');
   // create state to toggle if popular movies should display or if a searched movie. Might have to create another fetch call to API to get all movies instead of popular.
 
   useEffect(() => {
@@ -23,7 +25,9 @@ function App() {
         setMovies={setMovies}
         inputValue={inputValue}
         setInputValue={setInputValue}
+        setSearchedMovie={setSearchedMovie}
       />
+      <Landing />
       {/* <MovieList movies={movies} /> */}
       <div className='movie-list-container'>
           <h1 className='popular-title'>Popular Movies</h1>
