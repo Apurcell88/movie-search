@@ -11,12 +11,26 @@ function App() {
   // STATE
   const [movies, setMovies] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [searchedMovie, setSearchedMovie] = useState('');
-  // create state to toggle if popular movies should display or if a searched movie. Might have to create another fetch call to API to get all movies instead of popular.
+  const [searchedMovieTitle, setSearchedMovieTitle] = useState('');
+  const [searchedMovie, setSearchedMovie] = useState([]);
 
   useEffect(() => {
-    console.log(inputValue);
-  }, [inputValue]);
+    const fetchMovieByTitle = async () => {
+      try {
+        const apiKey = '51199ad127900c0adc25977cf075af18';
+
+        const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchedMovieTitle}`);
+
+        const data = await res.json();
+
+        setSearchedMovie(data.results);
+      } catch (error) {
+        console.error('Error fetching movie data', error);
+      }
+    };
+
+    fetchMovieByTitle();
+  });
 
   return (
     <div className="App">
@@ -25,16 +39,23 @@ function App() {
         setMovies={setMovies}
         inputValue={inputValue}
         setInputValue={setInputValue}
-        setSearchedMovie={setSearchedMovie}
+        setSearchedMovieTitle={setSearchedMovieTitle}
       />
       <Landing />
       {/* <MovieList movies={movies} /> */}
-      <div className='movie-list-container'>
+        {!searchedMovieTitle ?
+        <div className='movie-list-container'>
           <h1 className='popular-title'>Popular Movies</h1>
           {movies.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
           ))}
-      </div>
+        </div> :
+        <div className='movie-list-container'>
+          {searchedMovie.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
+        </div>
+        }
       <div className="overlay"></div>
     </div>
   );

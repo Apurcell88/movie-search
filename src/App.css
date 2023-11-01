@@ -1,5 +1,5 @@
 :root {
-  --site-padding: 0 4rem;
+  --site-padding: 0 3rem;
 }
 
 .App {
@@ -62,8 +62,18 @@
   z-index: 5;
 }
 
+.nav--logo {
+  font-size: 1.3rem;
+  color: rgb(245, 89, 115);
+  transform: rotate(5deg);
+}
+
+.nav--input {
+  width: 8.5rem;
+}
+
 .nav-search-btn {
-  background-color: #fd1722;
+  background-color: rgb(117, 19, 93);
   border: transparent;
   color: white;
   border-radius: 5px;
@@ -77,8 +87,17 @@
   position: relative;
   z-index: 5;
   margin: 2.7rem 0;
+  border-bottom: 10px solid black;
+}
+
+.landing--title {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.landing--description {
+  font-size: 1.1rem;
   padding: var(--site-padding);
-  border-bottom: 8px solid black;
 }
 
 /* --------------- MOVIE CARD --------------- */
@@ -96,5 +115,5 @@
   align-items: center;
   padding: var(--site-padding);
   margin: 2rem 0;
-  border-bottom: 8px solid black;
+  border-bottom: 10px solid black;
 }

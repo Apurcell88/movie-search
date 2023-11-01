@@ -1,8 +1,14 @@
 import Stack from 'react-bootstrap/Stack';
 import { useEffect } from 'react';
 
-const Nav = ({ movies, setMovies, inputValue, setInputValue }) => {
-  // GET LIST OF MOVIES
+const Nav = ({
+  movies,
+  setMovies,
+  inputValue,
+  setInputValue,
+  setSearchedMovieTitle
+  }) => {
+  // GET LIST OF POPULAR MOVIES
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -27,16 +33,17 @@ const Nav = ({ movies, setMovies, inputValue, setInputValue }) => {
   }
 
   const handleSearchClick = (e) => {
-    
+    setSearchedMovieTitle(inputValue);
   }
 
   return (
     <Stack className='nav-stack' direction="horizontal" gap={1}>
       <div className='p-2'>
-        <img src="" alt="Logo" />
+        <h1 className='nav--logo'>MovieREELZ</h1>
       </div>
       <div className='p-2 ms-auto'>
         <input
+          className='nav--input'
           type="text"
           placeholder='Search Movies'
           value={inputValue}
@@ -44,7 +51,12 @@ const Nav = ({ movies, setMovies, inputValue, setInputValue }) => {
         />
       </div>
       <div className='p-2'>
-        <button className='nav-search-btn'>Search</button>
+        <button
+          className='nav-search-btn'
+          onClick={handleSearchClick}
+        >
+          Search
+        </button>
       </div>
     </Stack>
   )
