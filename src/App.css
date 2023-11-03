@@ -101,6 +101,11 @@
   padding: var(--site-padding);
 }
 
+/* --------------- MOVIE LIST --------------- */
+.movie-list-container {
+  padding-top: 4rem;
+}
+
 /* --------------- MOVIE CARD --------------- */
 .movie-list-container {
   max-width: 980px;
@@ -125,6 +130,12 @@
 }
 
 /* --------------- MEDIA QUERIES --------------- */
+@media screen and (min-width: 600px) {
+  .movie-list-container {
+    padding-top: 10rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   /* --------------- NAV --------------- */
   .nav--logo {
@@ -152,6 +163,11 @@
   
   .landing--description {
     font-size: 1.3rem;
+  }
+
+  /* --------------- MOVIE LIST --------------- */
+  .movie-list-container {
+    padding-top: 6rem;
   }
 
   /* --------------- MOVIE CARD --------------- */
