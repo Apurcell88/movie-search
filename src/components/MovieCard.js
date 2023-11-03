@@ -4,11 +4,15 @@ const MovieCard = ({ movie }) => {
   }
   return (
     <div className='movie-card'>
-      {/* <img src={movie.backdrop_path} alt="movie cover" /> */}
-      <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
-      <p>Release Date: {movie.release_date}</p>
-      <p>Rating: {movie.vote_average}</p>
+      <div className="movie-card--movie-poster-container">
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='Movie Poster' className="movie-card--poster"></img>
+      </div>
+      <div className="movie-card--movie-info-container">
+        <h2 className="movie-card--title">{movie.title}</h2>
+        <p className="movie-card--info">{movie.overview}</p>
+        <p className="movie-card--info">Release Date: {movie.release_date}</p>
+        <p className="movie-card--info">Rating: {movie.vote_average}</p>
+      </div>
     </div>
   );
 }

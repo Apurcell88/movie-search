@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import Landing from './components/Landing';
-import MovieList from './components/MovieCard';
+import MovieList from './components/MovieList';
 import MovieCard from './components/MovieCard';
 
 
@@ -34,29 +34,24 @@ function App() {
 
   return (
     <div className="App">
-      <Nav
-        movies={movies}
-        setMovies={setMovies}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        setSearchedMovieTitle={setSearchedMovieTitle}
-      />
-      <Landing />
-      {/* <MovieList movies={movies} /> */}
-        {!searchedMovieTitle ?
-        <div className='movie-list-container'>
-          <h1 className='popular-title'>Popular Movies</h1>
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </div> :
+      <div className="overlay">
+        <Nav
+          movies={movies}
+          setMovies={setMovies}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          setSearchedMovieTitle={setSearchedMovieTitle}
+        />
+        <Landing />
+      </div>
+      {!searchedMovieTitle ?
+        <MovieList movies={movies} /> :
         <div className='movie-list-container'>
           {searchedMovie.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
           ))}
         </div>
-        }
-      <div className="overlay"></div>
+      }
     </div>
   );
 }
