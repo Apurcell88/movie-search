@@ -38,10 +38,10 @@ const Nav = ({
 
   return (
     <Stack className='nav-stack' direction="horizontal" gap={1}>
-      <div className='p-2'>
+      <div className='p-0'>
         <h1 className='nav--logo'>MovieREELZ</h1>
       </div>
-      <div className='p-2 ms-auto'>
+      <div className='p-0 ms-auto'>
         <input
           className='nav--input'
           type="text"
