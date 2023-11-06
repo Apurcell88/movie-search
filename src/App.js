@@ -30,7 +30,7 @@ function App() {
     };
 
     fetchMovieByTitle();
-  });
+  }, [searchedMovieTitle]);
 
   return (
     <div className="App">
